@@ -1,0 +1,4 @@
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.AssemblyInfoInputs.cache
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.AssemblyInfo.cs
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.csproj.CoreCompileInputs.cache
