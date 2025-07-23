@@ -2,3 +2,14 @@ C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.GeneratedMSBuildEdit
 C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.AssemblyInfoInputs.cache
 C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.AssemblyInfo.cs
 C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.csproj.CoreCompileInputs.cache
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.sourcelink.json
+C:\spel karaktärer C#\bin\Debug\net9.0\spel karaktärer C#.exe
+C:\spel karaktärer C#\bin\Debug\net9.0\spel karaktärer C#.deps.json
+C:\spel karaktärer C#\bin\Debug\net9.0\spel karaktärer C#.runtimeconfig.json
+C:\spel karaktärer C#\bin\Debug\net9.0\spel karaktärer C#.dll
+C:\spel karaktärer C#\bin\Debug\net9.0\spel karaktärer C#.pdb
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.dll
+C:\spel karaktärer C#\obj\Debug\net9.0\refint\spel karaktärer C#.dll
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.pdb
+C:\spel karaktärer C#\obj\Debug\net9.0\spel karaktärer C#.genruntimeconfig.cache
+C:\spel karaktärer C#\obj\Debug\net9.0\ref\spel karaktärer C#.dll
