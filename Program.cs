@@ -42,7 +42,7 @@ namespace MittSpel
                         break;
                     case "1":
                         string? answer = Console.ReadLine();
-                        if (answer == "Troll")
+                        if (answer?.ToLower() == "Troll")
                         {
                             Console.WriteLine(t);
                             Console.WriteLine($"Du har valt{t.Typ}");
@@ -62,7 +62,7 @@ namespace MittSpel
                                     break;
                             }
                         }
-                        else if (answer == "Magiker")
+                        else if (answer?.ToLower() == "Magiker")
                         {
                             Console.WriteLine(m);
                             Console.WriteLine($"Du har valt{t.Typ}");
