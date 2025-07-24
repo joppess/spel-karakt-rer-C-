@@ -16,8 +16,9 @@ namespace MittSpel
             // klass = ritning (klassen Magiker)
             // objekt = en ett riktigt hus (new Magiker = man bygger själva figuren "magikern")
             // denna byggs utifrån ritningen/klassen.
-            Magiker m = new Magiker(mana: 25, hälsa: 100, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
-            Troll t = new Troll(hälsa: 250, fetma: 100, namn: "Lindskog");
+            Magiker m = new Magiker(mana: 25, hälsa: 100, eldKlot: 50, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
+            Troll t = new Troll(hälsa: 250, fetma: 100, kukSmäll: 75, namn: "Lindskog");
+            Människa mn = new Människa(hälsa: 100, ångest: 50, kniv: 75, namn: "FetMats");
 
 
             string input = "";

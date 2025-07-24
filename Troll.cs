@@ -6,15 +6,18 @@ namespace MittSpel
     public class Troll : Karaktär
     {
         public int Fetma { get; set; }
+        public int KukSmäll { get; set; }
 
-        public override string Typ => "Troll";
+        public override string Typ => "Troll"; // => är samma som  get {return "Gandalf";}
 
-        public Troll(int hälsa, int fetma, string namn)
+        public Troll(int hälsa, int fetma, int kukSmäll, string namn)
         : base(namn, hälsa)
         {
             Fetma = fetma;
 
-            Console.WriteLine($"Namn: {Namn}, Hälsa: {Hälsa}");
+            KukSmäll = kukSmäll;
+
+            Console.WriteLine($"Namn: {Namn}, Hälsa: {Hälsa}, attack: {KukSmäll}");
             if (fetma > 0)
             {
                 Hälsa -= fetma;
