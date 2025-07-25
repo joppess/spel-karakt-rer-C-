@@ -18,5 +18,12 @@ namespace MittSpel
             Hälsa -= skada;
             Console.WriteLine($" {Namn} tar {skada} skada. Hälsa nu: {Hälsa}");
         }
+        public virtual void Vila()
+        {
+            Hälsa += 50;
+            if (Hälsa > 250)
+                Hälsa = 250;
+                Console.WriteLine($"{Namn} vilar och återfår 50 i hälsa. Nuvarande hälsa: {Hälsa}"); // detta används genom t.Vila():
+        }
     }
 }

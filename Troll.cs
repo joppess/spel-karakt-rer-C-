@@ -28,6 +28,12 @@ namespace MittSpel
             return $"Lider av fetma hälsa -{Fetma}hp\nNy hälsa: {Hälsa}";
         }
 
+        public void Attackera(Karaktär mål) // du måste skicka in en karaktär att attacker, "mål" är objektet som attackeras
+        {
+            Console.WriteLine($"{Namn} attackerar {mål.Namn}!"); //måste göra detta för varje .cs fil för att attackerna ska vara speciella.
+            mål.TaSkada(KukSmäll);
+        }
+
     }
     // lägg till övertygelse +20 i skada så det blir mindre skada totalt
 

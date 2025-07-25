@@ -51,12 +51,18 @@ namespace MittSpel
                             Console.WriteLine("1. Attackera");
                             Console.WriteLine("2. Vila");
 
-                            string? trollval = Console.ReadLine();
+                            string? trollVal = Console.ReadLine();
 
-                            switch (trollval)
+                            switch (trollVal)
                             {
                                 case "1":
-                                    //lägg in attack
+                                Console.WriteLine("Vem vill du attackera?");
+                                Console.WriteLine($"1. {m.Typ}");
+                                Console.WriteLine($"1. {mn.Typ}");
+                                    if (trollVal == "1")
+                                    {
+                                        t.Attackera(m); 
+                                    }
                                     break;
                                 case "2":
                                     //lägg in vila
