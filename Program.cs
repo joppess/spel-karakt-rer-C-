@@ -25,20 +25,21 @@ namespace MittSpel
 
             while (input != "exit")
             {
+                Console.WriteLine("########################################");
                 Console.WriteLine("Menyval:");
                 Console.WriteLine("0. Visa karaktärer");
                 Console.WriteLine("1. Välj en karaktär ");
                 Console.WriteLine("2. Avsluta spelet");
-                Console.WriteLine("Tillgängliga karaktärer: Troll, Magiker");
-                Console.Write("Ange din karaktär");
-                Console.ReadLine();
+                Console.WriteLine("#######################################");
+                string? choice = Console.ReadLine();
 
-                switch (input)
+                switch (choice)
                 {
                     case "0":
 
                         Console.WriteLine(m.Typ);
                         Console.WriteLine(t.Typ);
+                        Console.WriteLine(mn.Typ);
                         break;
                     case "1":
                         string? answer = Console.ReadLine();

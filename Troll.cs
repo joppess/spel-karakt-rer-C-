@@ -29,6 +29,6 @@ namespace MittSpel
         }
 
     }
-    // lägga till attack Stor-Dase
+    // lägg till övertygelse +20 i skada så det blir mindre skada totalt
 
 }
