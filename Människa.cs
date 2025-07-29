@@ -7,10 +7,20 @@ namespace MittSpel
 
         public override string Typ => "Männsika";
 
-        public Människa(int hälsa, int ångest, int kniv, string namn)
-        : base(namn, hälsa)
+        public Människa(int hälsa, int UrsprungligHälsa, int ångest, int kniv, string namn)
+        : base(namn, hälsa, UrsprungligHälsa)
         {
-
+            Ångest = ångest;
+            Kniv = kniv;
+        }
+        public override string ToString()
+        {
+            return $"Människa: Namn: {Namn}, Hälsa: {Hälsa} Ångest:{Ångest}, Skada(kniv): {Kniv}.";
+        }
+        public void Attackera(Karaktär mål)
+        {
+            Console.WriteLine($"{Namn} attackerar {mål.Namn}!");
+            mål.TaSkada(Kniv);
         }
 
     }

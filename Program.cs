@@ -16,9 +16,9 @@ namespace MittSpel
             // klass = ritning (klassen Magiker)
             // objekt = en ett riktigt hus (new Magiker = man bygger själva figuren "magikern")
             // denna byggs utifrån ritningen/klassen.
-            Magiker m = new Magiker(mana: 25, hälsa: 100, eldKlot: 50, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
-            Troll t = new Troll(hälsa: 250, fetma: 100, kukSmäll: 75, namn: "Lindskog");
-            Människa mn = new Människa(hälsa: 100, ångest: 50, kniv: 75, namn: "FetMats");
+            Magiker m = new Magiker(mana: 25, hälsa: 100, UrsprungligHälsa: 100, eldKlot: 50, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
+            Troll t = new Troll(hälsa: 250, UrsprungligHälsa: 100, fetma: 100, kukSmäll: 75, namn: "Lindskog");
+            Människa mn = new Människa(hälsa: 100, UrsprungligHälsa: 100, ångest: 50, kniv: 75, namn: "FetMats");
 
 
             string input = "";
@@ -42,11 +42,13 @@ namespace MittSpel
                         Console.WriteLine(mn.Typ);
                         break;
                     case "1":
+                        Console.WriteLine("Ange karaktär:");
                         string? answer = Console.ReadLine();
-                        if (answer?.ToLower() == "Troll")
+                        if (answer?.ToLower() == "troll")
                         {
+                            Console.WriteLine($"Du har valt {t.Typ}");
                             Console.WriteLine(t);
-                            Console.WriteLine($"Du har valt{t.Typ}");
+                            Console.WriteLine("");
                             Console.WriteLine("Nya alternativ:");
                             Console.WriteLine("1. Attackera");
                             Console.WriteLine("2. Vila");
@@ -56,23 +58,33 @@ namespace MittSpel
                             switch (trollVal)
                             {
                                 case "1":
-                                Console.WriteLine("Vem vill du attackera?");
-                                Console.WriteLine($"1. {m.Typ}");
-                                Console.WriteLine($"1. {mn.Typ}");
-                                    if (trollVal == "1")
+                                    Console.WriteLine("Vem vill du attackera?");
+                                    Console.WriteLine($"1. {m.Typ}");
+                                    Console.WriteLine($"2. {mn.Typ}");
+                                    string? nyTrollVal = Console.ReadLine();
+
+                                    switch (nyTrollVal)
                                     {
-                                        t.Attackera(m); 
+                                        case "1":
+                                            t.Attackera(m);
+                                            Console.WriteLine($"{t.Typ} använder kuksmäll. Skada: {t.KukSmäll}. {m.Typ} hälsa innan: {m.UrsprungligHälsa}. Hälsa efter {m.Hälsa}");
+                                            break;
+
+                                        case "2":
+                                            t.Attackera(mn); // utskrift på skada och hälsa!!!!!
+                                            break;
                                     }
                                     break;
                                 case "2":
-                                    //lägg in vila
+                                    t.Vila();
                                     break;
                             }
                         }
-                        else if (answer?.ToLower() == "Magiker")
+                        else if (answer?.ToLower() == "magiker")
                         {
+                            Console.WriteLine($"Du har valt{m.Typ}");
                             Console.WriteLine(m);
-                            Console.WriteLine($"Du har valt{t.Typ}");
+                            Console.WriteLine("");
                             Console.WriteLine("Nya alternativ:");
                             Console.WriteLine("1. Attackera");
                             Console.WriteLine("2. Vila");
@@ -82,10 +94,67 @@ namespace MittSpel
                             switch (magikerVal)
                             {
                                 case "1":
+                                    Console.WriteLine("Vem vill du attackera?");
+                                    Console.WriteLine($"1. {t.Typ}");
+                                    Console.WriteLine($"2. {mn.Typ}");
+                                    string? nyMagikerVal = Console.ReadLine();
+                                    switch (nyMagikerVal)
+                                    {
+                                        case "1":
+                                            {
+                                                m.Attackera(t);
+                                            }
+                                            break;
+                                        case "2":
+                                            {
+                                                m.Attackera(mn);
+                                            }
+                                            break;
+                                    }
                                     break;
-                                //lägg in attack
                                 case "2":
-                                    //lägg in vila
+                                    {
+                                        m.Vila();
+                                    }
+                                    break;
+                            }
+                        }
+                        else if ((answer?.ToLower() == "människa"))
+                        {
+                            Console.WriteLine($"Du har valt{mn.Typ}");
+                            Console.WriteLine(mn);
+                            Console.WriteLine("");
+                            Console.WriteLine("Nya alternativ:");
+                            Console.WriteLine("1. Attackera");
+                            Console.WriteLine("2. Vila");
+
+                            string? mnVal = Console.ReadLine();
+
+                            switch (mnVal)
+                            {
+                                case "1":
+                                    Console.WriteLine("Vem vill du attackera?");
+                                    Console.WriteLine($"1. {t.Typ}");
+                                    Console.WriteLine($"2. {m.Typ}");
+                                    string? nyMnVal = Console.ReadLine();
+                                    switch (nyMnVal)
+                                    {
+                                        case "1":
+                                            {
+                                                mn.Attackera(t);
+                                            }
+                                            break;
+                                        case "2":
+                                            {
+                                                mn.Attackera(m);
+                                            }
+                                            break;
+                                    }
+                                    break;
+                                case "2":
+                                    {
+                                        mn.Vila();
+                                    }
                                     break;
                             }
                         }
@@ -94,29 +163,11 @@ namespace MittSpel
                         Console.WriteLine("Spelet avslutas");
                         input = "exit";
                         break;
-                    case "3":
-                        break;
-                    case "4":
-                        break;
-                    case "5":
-                        break;
-                    case "6":
-                        break;
                     default:
                         Console.WriteLine("Ogiltigt svar, försök igen");
                         break;
-
-
-
                 }
-
             }
-
-
-
-
-
         }
-
     }
 }

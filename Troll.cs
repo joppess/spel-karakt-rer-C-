@@ -10,14 +10,13 @@ namespace MittSpel
 
         public override string Typ => "Troll"; // => är samma som  get {return "Gandalf";}
 
-        public Troll(int hälsa, int fetma, int kukSmäll, string namn)
-        : base(namn, hälsa)
+        public Troll(int hälsa, int UrsprungligHälsa, int fetma, int kukSmäll, string namn)
+        : base(namn, hälsa, UrsprungligHälsa)
         {
             Fetma = fetma;
-
             KukSmäll = kukSmäll;
+            UrsprungligHälsa = hälsa;
 
-            Console.WriteLine($"Namn: {Namn}, Hälsa: {Hälsa}, attack: {KukSmäll}");
             if (fetma > 0)
             {
                 Hälsa -= fetma;
@@ -25,7 +24,9 @@ namespace MittSpel
         }
         public override string ToString()
         {
-            return $"Lider av fetma hälsa -{Fetma}hp\nNy hälsa: {Hälsa}";
+            return $"Troll: Namn: {Namn}, Hälsa: {UrsprungligHälsa}, Skada(kuksmäll): {KukSmäll}."
+            + $" lider av fetma. Hälsa -{Fetma}"
+            + $" Ny hälsa: {Hälsa}";
         }
 
         public void Attackera(Karaktär mål) // du måste skicka in en karaktär att attacker, "mål" är objektet som attackeras
