@@ -16,7 +16,8 @@ namespace MittSpel
             Hälsa = hälsa; // same
             UrsprungligHälsa = ursprungligHälsa;
         }
-        public void TaSkada(int skada) // tar in ett heltal och drar det från karaktärens hälsa
+        public virtual void TaSkada(int skada) // tar in ett heltal och drar det från karaktärens hälsa
+        // måste vara virtual så vi kan override:a denna i troll.cs
         {
             Hälsa -= skada;
             if (Hälsa <= 0)

@@ -24,9 +24,6 @@ namespace MittSpel
         }
 
     }
-
-
-
-
+    // fixa ångest
 
 }

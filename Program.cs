@@ -59,9 +59,11 @@ namespace MittSpel
                             Console.WriteLine("Nya alternativ:");
                             Console.WriteLine("1. Attackera");
                             Console.WriteLine("2. Vila");
+                            Console.WriteLine("3. Använd lindskog special");
 
                             string? trollVal = Console.ReadLine();
                             Console.WriteLine("");
+                            Console.WriteLine($"DEBUG: trollVal = '{trollVal}'");
 
                             switch (trollVal)
                             {
@@ -84,7 +86,7 @@ namespace MittSpel
                                                 int tidigareHälsa = m.Hälsa;
                                                 t.Attackera(m);
                                                 Console.WriteLine($"{t.Namn} använder kuksmäll. Skada: {t.KukSmäll}."
-                                                + $" {m.Namn} hälsa går från: {tidigareHälsa}. till {m.Hälsa}\n");
+                                                + $" {m.Namn}s hälsa går från: {tidigareHälsa}. till {m.Hälsa}\n");
                                                 if (m.ärDöd)
                                                 {
                                                     Console.WriteLine($"{m.Namn} är död\n");
@@ -107,6 +109,10 @@ namespace MittSpel
                                                     Console.WriteLine($"{mn.Namn} är död\n");
                                                 }
                                             }
+                                            break;
+                                        case "3":
+                                            t.AnvändÖvertygelse();
+                                            Console.WriteLine("test");
                                             break;
                                     }
                                     break;
@@ -153,7 +159,7 @@ namespace MittSpel
                                                     int tidigareHälsa = t.Hälsa;
                                                     m.Attackera(t);
                                                     Console.WriteLine($"{m.Namn} använder eldklot. Skada: {m.EldKlot}."
-                                                    + $" {t.Namn} hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
+                                                    + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
                                                     if (t.ärDöd)
                                                     {
                                                         Console.WriteLine($"{t.Namn} är död\n");
@@ -227,7 +233,7 @@ namespace MittSpel
                                                     int tidigareHälsa = t.Hälsa;
                                                     mn.Attackera(t);
                                                     Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
-                                                    + $" {t.Namn} hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
+                                                    + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
                                                     if (t.ärDöd)
                                                     {
                                                         Console.WriteLine($"{t.Namn} är död\n");
@@ -246,7 +252,7 @@ namespace MittSpel
                                                     int tidigareHälsa_m = m.Hälsa;
                                                     mn.Attackera(m);
                                                     Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
-                                                    + $" {m.Namn} hälsa går från: {tidigareHälsa_m}. till {m.Hälsa}\n");
+                                                    + $" {m.Namn}s hälsa går från: {tidigareHälsa_m}. till {m.Hälsa}\n");
                                                     if (m.ärDöd)
                                                     {
                                                         Console.WriteLine($"{m.Namn} är död\n");
