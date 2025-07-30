@@ -63,7 +63,6 @@ namespace MittSpel
 
                             string? trollVal = Console.ReadLine();
                             Console.WriteLine("");
-                            Console.WriteLine($"DEBUG: trollVal = '{trollVal}'");
 
                             switch (trollVal)
                             {
@@ -110,14 +109,14 @@ namespace MittSpel
                                                 }
                                             }
                                             break;
-                                        case "3":
-                                            t.AnvändÖvertygelse();
-                                            Console.WriteLine("test");
-                                            break;
                                     }
                                     break;
                                 case "2":
                                     t.Vila();
+                                    break;
+                                case "3":
+                                    t.AnvändÖvertygelse();
+                                    Console.WriteLine($"Lindskog Hälsa:{t.Hälsa}\n");
                                     break;
                             }
                         }
@@ -158,7 +157,8 @@ namespace MittSpel
                                                 {
                                                     int tidigareHälsa = t.Hälsa;
                                                     m.Attackera(t);
-                                                    Console.WriteLine($"{m.Namn} använder eldklot. Skada: {m.EldKlot}."
+                                                    int faktiskSkada = tidigareHälsa - t.Hälsa;
+                                                    Console.WriteLine($"{m.Namn} använder eldklot. Skada: {faktiskSkada}."
                                                     + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
                                                     if (t.ärDöd)
                                                     {
@@ -232,7 +232,8 @@ namespace MittSpel
                                                 {
                                                     int tidigareHälsa = t.Hälsa;
                                                     mn.Attackera(t);
-                                                    Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
+                                                    int faktiskSkada = tidigareHälsa - t.Hälsa;
+                                                    Console.WriteLine($"{mn.Namn} använder kniv. Skada: {faktiskSkada}."
                                                     + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
                                                     if (t.ärDöd)
                                                     {
