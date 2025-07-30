@@ -9,6 +9,7 @@ namespace MittSpel
         public int UrsprungligHälsa { get; set; }
 
         public virtual string Typ => "Karaktär"; // virtual kan skrivas över (override) av en klass som ärver från denna
+        public bool ärDöd => Hälsa <= 0; // är hälsa mindre eller lika med 0? isf returnera true/false
         public Karaktär(string namn, int hälsa, int ursprungligHälsa) // konstruktorn, byggaren, här skapas 2 variabler
         {
             Namn = namn; // tildellar värdet på parametern namn till egenskapen Namn
@@ -18,9 +19,10 @@ namespace MittSpel
         public void TaSkada(int skada) // tar in ett heltal och drar det från karaktärens hälsa
         {
             Hälsa -= skada;
-            Console.WriteLine($" {Namn} tar {skada} skada."
-            + $"Tidigare hälsa: {UrsprungligHälsa}"
-            + $" Ny Hälsa: {Hälsa}");
+            if (Hälsa <= 0)
+            {
+                Hälsa = 0;
+            }
         }
         public virtual void Vila()
         {

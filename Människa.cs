@@ -5,7 +5,7 @@ namespace MittSpel
         public int Ångest { get; set; }
         public int Kniv { get; set; }
 
-        public override string Typ => "Männsika";
+        public override string Typ => "Människa";
 
         public Människa(int hälsa, int UrsprungligHälsa, int ångest, int kniv, string namn)
         : base(namn, hälsa, UrsprungligHälsa)

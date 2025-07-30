@@ -17,7 +17,7 @@ namespace MittSpel
             // objekt = en ett riktigt hus (new Magiker = man bygger själva figuren "magikern")
             // denna byggs utifrån ritningen/klassen.
             Magiker m = new Magiker(mana: 25, hälsa: 100, UrsprungligHälsa: 100, eldKlot: 50, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
-            Troll t = new Troll(hälsa: 250, UrsprungligHälsa: 100, fetma: 100, kukSmäll: 75, namn: "Lindskog");
+            Troll t = new Troll(hälsa: 250, UrsprungligHälsa: 250, fetma: 100, kukSmäll: 75, namn: "Lindskog");
             Människa mn = new Människa(hälsa: 100, UrsprungligHälsa: 100, ångest: 50, kniv: 75, namn: "FetMats");
 
 
@@ -66,12 +66,26 @@ namespace MittSpel
                                     switch (nyTrollVal)
                                     {
                                         case "1":
+                                            int tidigareHälsa = m.Hälsa;
                                             t.Attackera(m);
-                                            Console.WriteLine($"{t.Typ} använder kuksmäll. Skada: {t.KukSmäll}. {m.Typ} hälsa innan: {m.UrsprungligHälsa}. Hälsa efter {m.Hälsa}");
+                                            Console.WriteLine($"{t.Namn} använder kuksmäll. Skada: {t.KukSmäll}."
+                                            + $" {m.Namn} hälsa går från: {tidigareHälsa}. till {m.Hälsa}");
+                                            if (m.ärDöd)
+                                            {
+                                                Console.WriteLine($"{m.Namn} är död");
+                                            }
                                             break;
 
                                         case "2":
-                                            t.Attackera(mn); // utskrift på skada och hälsa!!!!!
+                                            int tidigareHälsa_mn = mn.Hälsa;
+                                            t.Attackera(mn);
+                                            Console.WriteLine($"{t.Namn} använder kuksmäll. Skada: {t.KukSmäll}."
+                                            + $" {mn.Namn} hälsa går från: {tidigareHälsa_mn}. till {mn.Hälsa}");
+                                            if (mn.ärDöd)
+                                            {
+                                                Console.WriteLine($"{mn.Namn} är död");
+                                            }
+
                                             break;
                                     }
                                     break;
@@ -102,12 +116,27 @@ namespace MittSpel
                                     {
                                         case "1":
                                             {
+                                                int tidigareHälsa = t.Hälsa;
                                                 m.Attackera(t);
+                                                Console.WriteLine($"{m.Namn} använder eldklot. Skada: {m.EldKlot}."
+                                                + $" {t.Namn} hälsa går från: {tidigareHälsa}. till {t.Hälsa}");
+                                                if (t.ärDöd)
+                                                {
+                                                    Console.WriteLine($"{t.Namn} är död");
+                                                }
+
                                             }
                                             break;
                                         case "2":
                                             {
+                                                int tidigareHälsa_mn = mn.Hälsa;
                                                 m.Attackera(mn);
+                                                Console.WriteLine($"{m.Namn} använder eldklot. Skada: {m.EldKlot}."
+                                                + $" {mn.Namn} hälsa går från: {tidigareHälsa_mn}. till {mn.Hälsa}");
+                                                if (mn.ärDöd)
+                                                {
+                                                    Console.WriteLine($"{mn.Namn} är död");
+                                                }
                                             }
                                             break;
                                     }
@@ -119,9 +148,9 @@ namespace MittSpel
                                     break;
                             }
                         }
-                        else if ((answer?.ToLower() == "människa"))
+                        else if (answer?.ToLower() == "människa")
                         {
-                            Console.WriteLine($"Du har valt{mn.Typ}");
+                            Console.WriteLine($"Du har valt {mn.Typ}");
                             Console.WriteLine(mn);
                             Console.WriteLine("");
                             Console.WriteLine("Nya alternativ:");
@@ -141,12 +170,26 @@ namespace MittSpel
                                     {
                                         case "1":
                                             {
+                                                int tidigareHälsa = t.Hälsa;
                                                 mn.Attackera(t);
+                                                Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
+                                                + $" {t.Namn} hälsa går från: {tidigareHälsa}. till {t.Hälsa}");
+                                                if (t.ärDöd)
+                                                {
+                                                    Console.WriteLine($"{t.Namn} är död");
+                                                }
                                             }
                                             break;
                                         case "2":
                                             {
+                                                int tidigareHälsa_m = m.Hälsa;
                                                 mn.Attackera(m);
+                                                Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
+                                                + $" {m.Namn} hälsa går från: {tidigareHälsa_m}. till {m.Hälsa}");
+                                                if (m.ärDöd)
+                                                {
+                                                    Console.WriteLine($"{m.Namn} är död");
+                                                }
                                             }
                                             break;
                                     }
@@ -158,6 +201,11 @@ namespace MittSpel
                                     break;
                             }
                         }
+                        else
+                        {
+                            Console.WriteLine("Okänt karaktärsval!");
+                        }
+
                         break;
                     case "2":
                         Console.WriteLine("Spelet avslutas");

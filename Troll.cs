@@ -15,7 +15,6 @@ namespace MittSpel
         {
             Fetma = fetma;
             KukSmäll = kukSmäll;
-            UrsprungligHälsa = hälsa;
 
             if (fetma > 0)
             {
