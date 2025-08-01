@@ -27,7 +27,9 @@ namespace MittSpel
         public void AnvändÖvertygelse()
         {
             AnväntÖvertygelse = true;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"{Namn} övertygar fiende att göra 25 mindre skada i nästa anfall.");
+            Console.ResetColor();
         }
         public override void TaSkada(int skada)
         {
@@ -50,23 +52,24 @@ namespace MittSpel
             if (Entremedd)
             {
                 Entremedd = false;
-                return $"Troll: Namn: {Namn}, Hälsa: {UrsprungligHälsa}, Skada(kuksmäll): {KukSmäll}."
+                return $"Troll: {Namn}, Hälsa: {UrsprungligHälsa}, Skada(kuksmäll): {KukSmäll}."
                     + $" lider av fetma. Hälsa -{Fetma}"
                     + $" Ny hälsa: {Hälsa} specialförmåga: övertygelse";
             }
             else
             {
-                return $"Troll: Namn: {Namn}, Hälsa: {Hälsa}, Skada(kuksmäll): {KukSmäll}.";
+                return $"Troll: {Namn}, Hälsa: {Hälsa}, Skada(kuksmäll): {KukSmäll}.";
             }
         }
 
         public void Attackera(Karaktär mål) // du måste skicka in en karaktär att attacker, "mål" är objektet som attackeras
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{Namn} attackerar {mål.Namn}!"); //måste göra detta för varje .cs fil för att attackerna ska vara speciella.
             mål.TaSkada(KukSmäll);
+            Console.ResetColor();
         }
 
     }
-    // lägg till övertygelse +20 i skada så det blir mindre skada totalt
 
 }
