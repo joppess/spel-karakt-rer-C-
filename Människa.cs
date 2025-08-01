@@ -4,6 +4,7 @@ namespace MittSpel
     {
         public int Ångest { get; set; }
         public int Kniv { get; set; }
+        public bool ÅngestVisad { get; set; } = false;
 
         public override string Typ => "Människa";
 
@@ -19,9 +20,10 @@ namespace MittSpel
         }
         public override string ToString()
         {
-            return $"Människa: {Namn}, Hälsa: {UrsprungligHälsa}, Skada(kniv): {Kniv}"
-            + $" Då {Namn} lider av grov ångest -{Ångest} hälsa\n"
-            + $"ny hälsa: {Hälsa}";
+            return $"Människa: {Namn}\nSkada(kniv): {Kniv}"
+            + $"\nHälsa innan: {UrsprungligHälsa}"
+            + $"\nHälsa efter: {Hälsa}";
+
         }
         public void Attackera(Karaktär mål)
         {

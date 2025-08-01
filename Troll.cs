@@ -41,10 +41,7 @@ namespace MittSpel
                 AnväntÖvertygelse = false; // för den bara ska användas en gång sätter vi false igen
                 Console.WriteLine($"{Namn} använde övertygelse och tog bara {skada} i skada.");
             }
-            else
-            {
-                Console.WriteLine($"{Namn} tar {skada} i skada.");
-            }
+
             base.TaSkada(skada); // ropar på basklassens metod(Karaktär.TaSkada) och skickar med det ev modifierade svaret av skada.
         }
         public override string ToString()
@@ -52,13 +49,13 @@ namespace MittSpel
             if (Entremedd)
             {
                 Entremedd = false;
-                return $"Troll: {Namn}, Hälsa: {UrsprungligHälsa}, Skada(kuksmäll): {KukSmäll}."
-                    + $" lider av fetma. Hälsa -{Fetma}"
-                    + $" Ny hälsa: {Hälsa} specialförmåga: övertygelse";
+                return $"Troll: {Namn}\n Hälsa: {UrsprungligHälsa}\n Skada(kuksmäll): {KukSmäll}\n"
+                    + $" lider av fetma. Hälsa -{Fetma}\n"
+                    + $" Ny hälsa: {Hälsa}\nspecialförmåga: övertygelse";
             }
             else
             {
-                return $"Troll: {Namn}, Hälsa: {Hälsa}, Skada(kuksmäll): {KukSmäll}.";
+                return $"Troll: {Namn}\nHälsa: {Hälsa}\nSkada(kuksmäll): {KukSmäll}";
             }
         }
 

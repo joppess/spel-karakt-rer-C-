@@ -17,7 +17,7 @@ namespace MittSpel
             // klass = ritning (klassen Magiker)
             // objekt = en ett riktigt hus (new Magiker = man bygger själva figuren "magikern")
             // denna byggs utifrån ritningen/klassen.
-            Magiker m = new Magiker(mana: 25, hälsa: 100, UrsprungligHälsa: 100, eldKlot: 50, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
+            Magiker m = new Magiker(mana: 100, hälsa: 100, UrsprungligHälsa: 100, eldKlot: 45, namn: "Gandalf"); // ett nytt objekt(instans) av klassen magiker
             Troll t = new Troll(hälsa: 250, UrsprungligHälsa: 250, fetma: 100, kukSmäll: 75, namn: "Lindskog");
             Människa mn = new Människa(hälsa: 100, UrsprungligHälsa: 100, ångest: 50, kniv: 100, namn: "FetMats");
 
@@ -106,14 +106,15 @@ namespace MittSpel
                                             }
                                             else
                                             {
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                                 int tidigareHälsa = m.Hälsa;
                                                 t.Attackera(m);
                                                 Console.ForegroundColor = ConsoleColor.White;
                                                 Console.WriteLine($"{t.Namn} använder kuksmäll. Skada: {t.KukSmäll}."
                                                 + $" {m.Namn}s hälsa går från: {tidigareHälsa}. till {m.Hälsa}\n");
                                                 if (m.ärDöd)
-                                                    Console.ResetColor();
                                                 {
+                                                    Console.ResetColor();
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{m.Namn} är död\n");
                                                 }
@@ -196,9 +197,9 @@ namespace MittSpel
                                                 }
                                                 else
                                                 {
-                                                    Console.ForegroundColor = ConsoleColor.White;
                                                     int tidigareHälsa = t.Hälsa;
                                                     m.Attackera(t);
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int faktiskSkada = tidigareHälsa - t.Hälsa;
                                                     Console.WriteLine($"{m.Namn} använder eldklot. Skada: {faktiskSkada}."
                                                     + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
@@ -220,6 +221,7 @@ namespace MittSpel
                                                 }
                                                 else
                                                 {
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa_mn = mn.Hälsa;
                                                     m.Attackera(mn);
                                                     Console.WriteLine($"{m.Namn} använder eldklot. Skada: {m.EldKlot}."
@@ -248,15 +250,23 @@ namespace MittSpel
                         }
                         else if (answer?.ToLower() == "människa")
                         {
+                            Console.WriteLine($"\nDu har valt {mn.Typ}");
+
                             if (mn.ärDöd)
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine($"{mn.Namn} är död och kan inte agera\n");
+                                Console.WriteLine($"{mn.Namn} är död och kan inte agera");
                                 Console.ResetColor();
                                 break;
                             }
+                            if (mn.Ångest > 0 && !mn.ÅngestVisad)
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine($"Då {mn.Namn} lider av grov ångest -50 hälsa");
+                                mn.ÅngestVisad = true;
+                                Console.ResetColor();
+                            }
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine($"Du har valt {mn.Typ}");
                             Console.WriteLine(mn);
                             Console.WriteLine("");
                             Console.ResetColor();
@@ -288,6 +298,7 @@ namespace MittSpel
                                                 }
                                                 else
                                                 {
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa = t.Hälsa;
                                                     mn.Attackera(t);
                                                     int faktiskSkada = tidigareHälsa - t.Hälsa;
@@ -306,17 +317,22 @@ namespace MittSpel
                                             {
                                                 if (m.ärDöd)
                                                 {
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{m.Namn} är död och kan inte attackeras\n");
+                                                    Console.ResetColor();
                                                 }
                                                 else
                                                 {
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa_m = m.Hälsa;
                                                     mn.Attackera(m);
                                                     Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
                                                     + $" {m.Namn}s hälsa går från: {tidigareHälsa_m}. till {m.Hälsa}\n");
                                                     if (m.ärDöd)
                                                     {
+                                                        Console.ForegroundColor = ConsoleColor.DarkRed;
                                                         Console.WriteLine($"{m.Namn} är död\n");
+                                                        Console.ResetColor();
                                                     }
                                                 }
                                             }

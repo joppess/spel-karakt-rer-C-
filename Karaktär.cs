@@ -24,6 +24,8 @@ namespace MittSpel
             {
                 Hälsa = 0;
             }
+            Console.WriteLine($"{Namn} tar {skada} i skada.");
+
         }
         public virtual void Vila()
         {

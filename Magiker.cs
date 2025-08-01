@@ -16,14 +16,22 @@ namespace MittSpel
         }
         public override string ToString()
         {
-            return $"Magiker: {Namn}, Hälsa: {Hälsa} Mana:{Mana}, Skada(eldklot): {EldKlot}.";
+            return $"Magiker: {Namn}\nHälsa: {Hälsa}\nMana:{Mana}\nSkada(eldklot): {EldKlot}";
         }
 
         public void Attackera(Karaktär mål)
         {
+            if (Mana <= 0)
+            {
+                Console.WriteLine($"{Namn} har slut på mana, kan ej attackera");
+                return;
+            }
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{Namn} attackerar {mål.Namn}!");
             mål.TaSkada(EldKlot);
+            Mana -= 25;
+            Console.WriteLine("Mana -25");
+            Console.WriteLine($"Mana kvar: {Mana}");
             Console.ResetColor();
         }
 

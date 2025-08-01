@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("spel karaktärer C#")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee246c410d2870a0144013b113551516aa941eef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7abb36ec28d6f17021bde88f571a16dba3442e53")]
 [assembly: System.Reflection.AssemblyProductAttribute("spel karaktärer C#")]
 [assembly: System.Reflection.AssemblyTitleAttribute("spel karaktärer C#")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
