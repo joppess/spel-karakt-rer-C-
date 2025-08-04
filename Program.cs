@@ -217,7 +217,9 @@ namespace MittSpel
                                             {
                                                 if (mn.ärDöd)
                                                 {
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{mn.Namn} är död och kan inte attackeras\n");
+                                                    Console.ResetColor();
                                                 }
                                                 else
                                                 {

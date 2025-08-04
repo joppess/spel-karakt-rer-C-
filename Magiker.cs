@@ -23,7 +23,9 @@ namespace MittSpel
         {
             if (Mana <= 0)
             {
-                Console.WriteLine($"{Namn} har slut på mana, kan ej attackera");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"{Namn} har slut på mana och gör ingen skada");
+                Console.ResetColor();
                 return;
             }
             Console.ForegroundColor = ConsoleColor.DarkRed;
