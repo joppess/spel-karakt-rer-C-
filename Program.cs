@@ -64,7 +64,7 @@ namespace MittSpel
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
 
-                                Console.WriteLine($"{t.Namn} är död och kan inte ageran\n");
+                                Console.WriteLine($"{t.Namn} är död och kan inte agera\n");
                                 break;
                             }
                             Console.ResetColor();
@@ -109,12 +109,13 @@ namespace MittSpel
                                                 Console.ForegroundColor = ConsoleColor.DarkRed;
                                                 int tidigareHälsa = m.Hälsa;
                                                 t.Attackera(m);
-                                                Console.ForegroundColor = ConsoleColor.White;
+                                                Console.ResetColor();
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                                 Console.WriteLine($"{t.Namn} använder kuksmäll. Skada: {t.KukSmäll}."
-                                                + $" {m.Namn}s hälsa går från: {tidigareHälsa}. till {m.Hälsa}\n");
+                                                + $" {m.Namn}s hälsa går från: {tidigareHälsa} till {m.Hälsa}\n");
+                                                Console.ResetColor();
                                                 if (m.ärDöd)
                                                 {
-                                                    Console.ResetColor();
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{m.Namn} är död\n");
                                                 }
@@ -123,19 +124,23 @@ namespace MittSpel
                                         case "2":
                                             if (mn.ärDöd)
                                             {
-                                                Console.WriteLine($"{mn.Namn} är redan död och kan inte attackera\n");
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                Console.WriteLine($"{mn.Namn} är redan död och kan inte attackeras\n");
+                                                Console.ResetColor();
                                             }
                                             else
                                             {
                                                 Console.ResetColor();
-                                                Console.ForegroundColor = ConsoleColor.White;
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                                 int tidigareHälsa_mn = mn.Hälsa;
                                                 t.Attackera(mn);
+                                                Console.ResetColor();
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                                 Console.WriteLine($"{t.Namn} använder kuksmäll. Skada: {t.KukSmäll}."
-                                                + $" {mn.Namn} hälsa går från: {tidigareHälsa_mn}. till {mn.Hälsa}\n");
+                                                + $" {mn.Namn} hälsa går från: {tidigareHälsa_mn} till {mn.Hälsa}\n");
+                                                Console.ResetColor();
                                                 if (mn.ärDöd)
                                                 {
-                                                    Console.ResetColor();
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{mn.Namn} är död\n");
                                                 }
@@ -150,7 +155,7 @@ namespace MittSpel
                                 case "3":
                                     t.AnvändÖvertygelse();
                                     Console.ForegroundColor = ConsoleColor.Green;
-                                    Console.WriteLine($"\nLindskog Hälsa:{t.Hälsa}\n");
+                                    Console.WriteLine($"\nLindskog Hälsa: {t.Hälsa}\n");
                                     Console.ResetColor();
                                     break;
                             }
@@ -197,15 +202,18 @@ namespace MittSpel
                                                 }
                                                 else
                                                 {
+                                                    Console.ResetColor();
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa = t.Hälsa;
                                                     m.Attackera(t);
+                                                    Console.ResetColor();
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int faktiskSkada = tidigareHälsa - t.Hälsa;
                                                     Console.WriteLine($"{m.Namn} använder eldklot. Skada: {faktiskSkada}."
-                                                    + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
+                                                    + $" {t.Namn}s hälsa går från: {tidigareHälsa} till {t.Hälsa}\n");
+                                                    Console.ResetColor();
                                                     if (t.ärDöd)
                                                     {
-                                                        Console.ResetColor();
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
                                                         Console.WriteLine($"{t.Namn} är död\n");
 
@@ -226,11 +234,13 @@ namespace MittSpel
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa_mn = mn.Hälsa;
                                                     m.Attackera(mn);
+                                                    Console.ResetColor();
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{m.Namn} använder eldklot. Skada: {m.EldKlot}."
-                                                    + $" {mn.Namn} hälsa går från: {tidigareHälsa_mn}. till {mn.Hälsa}\n");
+                                                    + $" {mn.Namn} hälsa går från: {tidigareHälsa_mn} till {mn.Hälsa}\n");
+                                                    Console.ResetColor();
                                                     if (mn.ärDöd)
                                                     {
-                                                        Console.ResetColor();
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
                                                         Console.WriteLine($"{mn.Namn} är död\n");
                                                         Console.ResetColor();
@@ -303,12 +313,14 @@ namespace MittSpel
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa = t.Hälsa;
                                                     mn.Attackera(t);
+                                                    Console.ResetColor();
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int faktiskSkada = tidigareHälsa - t.Hälsa;
                                                     Console.WriteLine($"{mn.Namn} använder kniv. Skada: {faktiskSkada}."
-                                                    + $" {t.Namn}s hälsa går från: {tidigareHälsa}. till {t.Hälsa}\n");
+                                                    + $" {t.Namn}s hälsa går från: {tidigareHälsa} till {t.Hälsa}\n");
+                                                    Console.ResetColor();
                                                     if (t.ärDöd)
                                                     {
-                                                        Console.ResetColor();
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
                                                         Console.WriteLine($"{t.Namn} är död\n");
                                                     }
@@ -328,8 +340,11 @@ namespace MittSpel
                                                     Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     int tidigareHälsa_m = m.Hälsa;
                                                     mn.Attackera(m);
+                                                    Console.ResetColor();
+                                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                                     Console.WriteLine($"{mn.Namn} använder kniv. Skada: {mn.Kniv}."
-                                                    + $" {m.Namn}s hälsa går från: {tidigareHälsa_m}. till {m.Hälsa}\n");
+                                                    + $" {m.Namn}s hälsa går från: {tidigareHälsa_m} till {m.Hälsa}\n");
+                                                    Console.ResetColor();
                                                     if (m.ärDöd)
                                                     {
                                                         Console.ForegroundColor = ConsoleColor.DarkRed;
